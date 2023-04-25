@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN ["npm", "i"] 
+RUN ["npm", "i"]
 
 COPY . .
 
@@ -13,4 +13,5 @@ RUN chown node:node /app
 USER node
 
 ENTRYPOINT [ "npm" ]
+
 CMD ["run", "dev"]
