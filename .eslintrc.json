@@ -92,11 +92,5 @@
         "sonarjs/no-inverted-boolean-check": ["error"],
         "lines-between-class-members": "off",
         "@typescript-eslint/lines-between-class-members": ["off"]
-    },
-    "[javascript]": {
-    "editor.defaultFormatterOptions": {
-        "quote": "single"
     }
-}
-
 }

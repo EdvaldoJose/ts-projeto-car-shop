@@ -2,3 +2,5 @@ node_modules
 coverage
 .nyc_output
 .env
+.prettierrc
+.eslintrc_copy.json
