@@ -19,4 +19,30 @@ export default class MotorcycleController {
       next(error);
     }
   }
+
+  public async findAllMotoCycles(
+    _req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response | undefined> {
+    try {
+      const motoCreated = await this.motorcycleService.findAllMotors();
+      return res.status(200).json(motoCreated);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  public async findMotorById(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response | undefined> {
+    try {
+      const motoCreated = await this.motorcycleService.findMotors(req.params.id);
+      return res.status(200).json(motoCreated);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
