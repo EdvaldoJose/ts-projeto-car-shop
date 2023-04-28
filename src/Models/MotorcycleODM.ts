@@ -16,7 +16,6 @@ export default class MotorcycleODM extends AbstractODM<IMotorcycle> {
       },
       { versionKey: false }
     );
-
     super(schema, 'Motorcycle');
   }
 }
