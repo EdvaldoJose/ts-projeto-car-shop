@@ -31,18 +31,17 @@
     },
     "plugins": ["@typescript-eslint", "sonarjs", "editorconfig", "mocha"],
     "rules": {
+        "@typescript-eslint/comma-dangle": "off",
+        "function-paren-newline": "off",
+        //
         "class-methods-use-this": [0],
         "no-underscore-dangle": "off",
-        "no-console": 1,
-        // "operator-linebreak": "off",
-        // "no-console": "off",
-        // "function-paren-newline": "off",
+        "no-console": "off",
         "camelcase": "warn",
         "arrow-parens": [2, "always"],
         "quotes": [2, "single"],
         "implicit-arrow-linebreak": "off",
         "consistent-return": "off",
-        "@typescript-eslint/comma-dangle": "off",
         "no-unused-vars": [
         "error",
         {
@@ -70,7 +69,7 @@
         ],
         "max-len": [
         "error",
-        100,
+        150,
         {
             "ignoreComments": true
         }
@@ -96,5 +95,6 @@
         "sonarjs/no-inverted-boolean-check": ["error"],
         "lines-between-class-members": "off",
         "@typescript-eslint/lines-between-class-members": ["off"]
+        
     }
 }

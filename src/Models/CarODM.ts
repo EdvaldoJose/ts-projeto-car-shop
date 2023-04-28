@@ -14,7 +14,9 @@ export default class CarsODM extends AbstractODM<ICars> {
         seatsQty: { type: Number, required: true },
         status: { type: Boolean, required: false },
       },
-      { versionKey: false }
+      {
+        versionKey: false,
+      }
     );
     super(schema, 'Cars');
   }
