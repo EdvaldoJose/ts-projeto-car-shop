@@ -1,69 +1,26 @@
 import ICar from '../Interfaces/ICar';
+import Vehicle from './Vehicle';
 
-export default class Car {
-  protected id?: string;
-  protected model: string;
-  protected year: number;
-  protected color: string;
-  protected status: boolean;
-  protected buyValue: number;
-  protected doorsQty: number;
-  protected seatsQty: number;
+export default class Car extends Vehicle {
+  private _doorsQty: number;
+  private _seatsQty: number;
 
-  constructor(objectCar: ICar) {
-    this.id = objectCar.id;
-    this.model = objectCar.model;
-    this.year = objectCar.year;
-    this.color = objectCar.color;
-    this.status = objectCar.status || false;
-    this.buyValue = objectCar.buyValue;
-    this.doorsQty = objectCar.doorsQty;
-    this.seatsQty = objectCar.seatsQty;
+  constructor({ model, year, color, buyValue, doorsQty, seatsQty, id, status }: ICar) {
+    super({ model, year, color, buyValue, id, status });
+    this._doorsQty = doorsQty;
+    this._seatsQty = seatsQty;
   }
 
-  setId(id: string): void {
-    this.id = id;
-  }
-
-  setDoorsQty(doorsQty: number): void {
-    this.doorsQty = doorsQty;
-  }
-
-  setSeatsQty(seatsQty: number): void {
-    this.seatsQty = seatsQty;
-  }
-
-  getId(): string | undefined {
-    if (this.id) return this.id;
-    return undefined;
-  }
-
-  getModel(): string {
-    return this.model;
-  }
-
-  getYear(): number {
-    return this.year;
-  }
-
-  getColor(): string {
-    return this.color;
-  }
-
-  getStatus(): boolean | undefined {
-    if (this.status) return this.status;
-    return undefined;
-  }
-
-  getBuyValue(): number {
-    return this.buyValue;
-  }
-
-  getDoorsQty(): number {
-    return this.doorsQty;
-  }
-
-  getSeatsQty(): number {
-    return this.seatsQty;
+  public CarModel() {
+    return {
+      id: this.id,
+      model: this.model,
+      year: this.year,
+      color: this.color,
+      status: this.status,
+      buyValue: this.buyValue,
+      doorsQty: this._doorsQty,
+      seatsQty: this._seatsQty,
+    };
   }
 }

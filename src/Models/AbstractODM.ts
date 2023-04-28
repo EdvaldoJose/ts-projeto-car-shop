@@ -1,16 +1,15 @@
-import { Schema, Model, models, model } from 'mongoose';
-// import ICar from '../Interfaces/ICar';
+import { Model, Schema, model, models } from 'mongoose';
 
-export default class AbstractODM<T> {
-  private schema: Schema;
-  private model: Model<T>;
+export default abstract class AbstractODM<T> {
+  readonly model: Model<T>;
+  private schema: Schema<T>;
 
-  constructor(schema: Schema, documentModel: string) {
+  constructor(schema: Schema<T>, modelName: string) {
     this.schema = schema;
-    this.model = models[documentModel] || model(documentModel, this.schema);
+    this.model = models[modelName] || model(modelName, this.schema);
   }
 
-  public async create(car: T): Promise<T> {
-    return this.model.create({ ...car });
+  public async create(obj: T): Promise<T> {
+    return this.model.create(obj);
   }
 }

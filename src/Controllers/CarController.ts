@@ -1,33 +1,22 @@
-import { Request, Response } from 'express';
-import CarService from '../Services/CarService';
+import { NextFunction, Request, Response } from 'express';
+import CarsODM from '../Models/CarODM';
+import CarsService from '../Services/CarsService';
 import ICar from '../Interfaces/ICar';
 
 export default class CarController {
-  private req: Request;
-  private res: Response;
-  private service: CarService;
+  constructor(private carsService = new CarsService(new CarsODM())) {}
 
-  constructor(req: Request, res: Response) {
-    this.req = req;
-    this.res = res;
-    this.service = new CarService();
-  }
-
-  public async create() {
-    const { model, year, color, status, buyValue, doorsQty, seatsQty } =
-      this.req.body;
-
-    const car: ICar = {
-      model,
-      year,
-      color,
-      status,
-      buyValue,
-      doorsQty,
-      seatsQty,
-    };
-
-    const newCar = await this.service.createCar(car);
-    return this.res.status(201).json(newCar);
+  public async createCar(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response | undefined> {
+    const car: ICar = { ...req.body };
+    try {
+      const carCreated = await this.carsService.createCar(car);
+      return res.status(201).json(carCreated);
+    } catch (error) {
+      next(error);
+    }
   }
 }
