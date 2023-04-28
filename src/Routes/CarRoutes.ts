@@ -17,4 +17,8 @@ carsRouter.get('/', (req: Request, res: Response, next: NextFunction) =>
   carsController.findAllCars(req, res, next)
 );
 
+carsRouter.put('/:id', (req: Request, res: Response, next: NextFunction) =>
+  carsController.UpdateVehicle(req, res, next)
+);
+
 export default carsRouter;

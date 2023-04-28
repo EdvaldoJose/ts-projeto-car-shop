@@ -1,4 +1,4 @@
-import { Model, Schema, model, models } from 'mongoose';
+import { Model, Schema, model, models, UpdateQuery } from 'mongoose';
 
 export default abstract class AbstractODM<T> {
   readonly model: Model<T>;
@@ -19,5 +19,10 @@ export default abstract class AbstractODM<T> {
 
   public async findAll(): Promise<T[]> {
     return this.model.find();
+  }
+
+  public async updateVehicle(id: string, obj: UpdateQuery<T>): Promise<T | null> {
+    const teste = await this.model.findByIdAndUpdate(id, obj, { new: true });
+    return teste;
   }
 }

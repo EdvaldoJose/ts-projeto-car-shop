@@ -40,4 +40,11 @@ export default class CarsService {
 
     return result;
   }
+
+  public async UpdateCar(obj: ICar, id: string): Promise<ICar | null> {
+    if (!isValidObjectId(id)) throw new ErrorTeste(this.invalidMongoId, 422);
+    const result = await this._modelODM.updateVehicle(id, obj);
+    if (result === null) throw new ErrorTeste(this.carNotFound, 404);
+    return new Car(result).CarModel();
+  }
 }

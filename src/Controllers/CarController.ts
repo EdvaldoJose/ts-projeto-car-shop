@@ -45,4 +45,17 @@ export default class CarController {
       next(error);
     }
   }
+
+  public async UpdateVehicle(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response | undefined> {
+    try {
+      const resultUpdate = await this.carsService.UpdateCar(req.body, req.params.id);
+      return res.status(200).json(resultUpdate);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
