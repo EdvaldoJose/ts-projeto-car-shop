@@ -47,4 +47,11 @@ export default class MotorcycleService {
     if (!result) throw new TypeError(this.carNotFound, 404);
     return new Motorcycle(result).MotorCycleModel();
   }
+
+  public async DeleteCar(id: string): Promise<IMotorcycle | null> {
+    if (!isValidObjectId(id)) throw new TypeError(this.invalidMongoId, 422);
+    const result = await this._modelODM.deleteVehicle(id);
+    if (result === null) throw new TypeError(this.carNotFound, 404);
+    return result;
+  }
 }

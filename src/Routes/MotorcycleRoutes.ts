@@ -21,4 +21,8 @@ motorcycleRouter.put('/:id', (req: Request, res: Response, next: NextFunction) =
   motorcycleController.UpdateMotorcycle(req, res, next)
 );
 
+motorcycleRouter.delete('/:id', (req: Request, res: Response, next: NextFunction) =>
+  motorcycleController.DeleteVehicle(req, res, next)
+);
+
 export default motorcycleRouter;
