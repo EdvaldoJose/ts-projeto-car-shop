@@ -58,4 +58,17 @@ export default class CarController {
       next(error);
     }
   }
+
+  public async DeleteVehicle(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response | undefined> {
+    try {
+      await this.carsService.DeleteCar(req.params.id);
+      return res.status(204).send();
+    } catch (error) {
+      next(error);
+    }
+  }
 }

@@ -21,4 +21,8 @@ carsRouter.put('/:id', (req: Request, res: Response, next: NextFunction) =>
   carsController.UpdateVehicle(req, res, next)
 );
 
+carsRouter.delete('/:id', (req: Request, res: Response, next: NextFunction) =>
+  carsController.DeleteVehicle(req, res, next)
+);
+
 export default carsRouter;
