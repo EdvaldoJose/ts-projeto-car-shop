@@ -31,12 +31,9 @@
     },
     "plugins": ["@typescript-eslint", "sonarjs", "editorconfig", "mocha"],
     "rules": {
-        "@typescript-eslint/comma-dangle": "off",
-        "function-paren-newline": "off",
-        //
         "class-methods-use-this": [0],
         "no-underscore-dangle": "off",
-        "no-console": "off",
+        "no-console": 1,
         "camelcase": "warn",
         "arrow-parens": [2, "always"],
         "quotes": [2, "single"],
@@ -69,7 +66,7 @@
         ],
         "max-len": [
         "error",
-        150,
+        100,
         {
             "ignoreComments": true
         }
@@ -94,8 +91,6 @@
         "sonarjs/prefer-single-boolean-return": ["error"],
         "sonarjs/no-inverted-boolean-check": ["error"],
         "lines-between-class-members": "off",
-        "@typescript-eslint/lines-between-class-members": [
-            "off"
-        ]
+        "@typescript-eslint/lines-between-class-members": ["off"]
     }
 }
