@@ -17,4 +17,8 @@ motorcycleRouter.get('/', (req: Request, res: Response, next: NextFunction) =>
   motorcycleController.findAllMotoCycles(req, res, next)
 );
 
+motorcycleRouter.put('/:id', (req: Request, res: Response, next: NextFunction) =>
+  motorcycleController.UpdateMotorcycle(req, res, next)
+);
+
 export default motorcycleRouter;

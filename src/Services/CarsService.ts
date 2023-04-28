@@ -2,7 +2,7 @@ import { isValidObjectId } from 'mongoose';
 import Car from '../Domains/Car';
 import ICar from '../Interfaces/ICar';
 import CarsODM from '../Models/CarODM';
-import ErrorTeste from '../utils/Errors';
+import TypeError from '../utils/Errors';
 
 export default class CarsService {
   private _modelODM: CarsODM;
@@ -19,9 +19,9 @@ export default class CarsService {
   }
 
   public async findCars(id: string): Promise<ICar | null> {
-    if (!isValidObjectId(id)) throw new ErrorTeste(this.invalidMongoId, 422);
+    if (!isValidObjectId(id)) throw new TypeError(this.invalidMongoId, 422);
     const cars = await this._modelODM.findById(id);
-    if (cars === null) throw new ErrorTeste(this.carNotFound, 404);
+    if (cars === null) throw new TypeError(this.carNotFound, 404);
     return new Car(cars).CarModel();
   }
 
@@ -42,9 +42,9 @@ export default class CarsService {
   }
 
   public async UpdateCar(obj: ICar, id: string): Promise<ICar | null> {
-    if (!isValidObjectId(id)) throw new ErrorTeste(this.invalidMongoId, 422);
+    if (!isValidObjectId(id)) throw new TypeError(this.invalidMongoId, 422);
     const result = await this._modelODM.updateVehicle(id, obj);
-    if (result === null) throw new ErrorTeste(this.carNotFound, 404);
+    if (result === null) throw new TypeError(this.carNotFound, 404);
     return new Car(result).CarModel();
   }
 }

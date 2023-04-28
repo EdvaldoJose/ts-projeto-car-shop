@@ -45,4 +45,17 @@ export default class MotorcycleController {
       next(error);
     }
   }
+
+  public async UpdateMotorcycle(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response | undefined> {
+    try {
+      const resultUpdate = await this.motorcycleService.UpdateMoto(req.body, req.params.id);
+      return res.status(200).json(resultUpdate);
+    } catch (error) {
+      next(error);
+    }
+  }
 }

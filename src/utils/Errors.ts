@@ -1,4 +1,4 @@
-export default class ErrorTeste extends Error {
+export default class TypeError extends Error {
   readonly status: number;
   constructor(message: string, status: number) {
     super(message);

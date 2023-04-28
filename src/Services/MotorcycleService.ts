@@ -2,7 +2,7 @@ import { isValidObjectId } from 'mongoose';
 import Motorcycle from '../Domains/Motorcycles';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcycleODM from '../Models/MotorcycleODM';
-import ErrorTeste from '../utils/Errors';
+import TypeError from '../utils/Errors';
 
 export default class MotorcycleService {
   private _modelODM: MotorcycleODM;
@@ -19,9 +19,9 @@ export default class MotorcycleService {
   }
 
   public async findMotors(id: string): Promise<IMotorcycle | null> {
-    if (!isValidObjectId(id)) throw new ErrorTeste(this.invalidMongoId, 422);
+    if (!isValidObjectId(id)) throw new TypeError(this.invalidMongoId, 422);
     const motors = await this._modelODM.findById(id);
-    if (motors === null) throw new ErrorTeste(this.carNotFound, 404);
+    if (motors === null) throw new TypeError(this.carNotFound, 404);
     return new Motorcycle(motors).MotorCycleModel();
   }
 
@@ -39,5 +39,12 @@ export default class MotorcycleService {
     }));
 
     return result;
+  }
+
+  public async UpdateMoto(obj: IMotorcycle, id: string): Promise<IMotorcycle | null> {
+    if (!isValidObjectId(id)) throw new TypeError(this.invalidMongoId, 422);
+    const result = await this._modelODM.updateVehicle(id, obj);
+    if (!result) throw new TypeError(this.carNotFound, 404);
+    return new Motorcycle(result).MotorCycleModel();
   }
 }
