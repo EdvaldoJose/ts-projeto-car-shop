@@ -9,4 +9,12 @@ carsRouter.post('/', (req: Request, res: Response, next: NextFunction) =>
   carsController.createCar(req, res, next)
 );
 
+carsRouter.get('/:id', (req: Request, res: Response, next: NextFunction) =>
+  carsController.findCarById(req, res, next)
+);
+
+carsRouter.get('/', (req: Request, res: Response, next: NextFunction) =>
+  carsController.findAllCars(req, res, next)
+);
+
 export default carsRouter;

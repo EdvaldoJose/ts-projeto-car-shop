@@ -12,4 +12,12 @@ export default abstract class AbstractODM<T> {
   public async create(obj: T): Promise<T> {
     return this.model.create(obj);
   }
+
+  public async findById(id: string): Promise<T | null> {
+    return this.model.findById(id);
+  }
+
+  public async findAll(): Promise<T[]> {
+    return this.model.find();
+  }
 }

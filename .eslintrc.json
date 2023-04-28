@@ -36,6 +36,7 @@
         //"no-console": 1,
         "operator-linebreak": "off",
         "no-console": "off",
+        "function-paren-newline": "off",
         "camelcase": "warn",
         "arrow-parens": [2, "always"],
         "quotes": [2, "single"],
