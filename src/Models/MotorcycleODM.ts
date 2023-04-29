@@ -14,7 +14,7 @@ export default class MotorcycleODM extends AbstractODM<IMotorcycle> {
         engineCapacity: { type: Number, required: true },
         status: { type: Boolean, required: false },
       },
-      { versionKey: false }
+      { versionKey: false },
     );
     super(schema, 'Motorcycle');
   }

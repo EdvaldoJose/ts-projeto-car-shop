@@ -16,7 +16,7 @@ export default class CarsODM extends AbstractODM<ICars> {
       },
       {
         versionKey: false,
-      }
+      },
     );
     super(schema, 'Cars');
   }

@@ -33,11 +33,12 @@
     "rules": {
         "class-methods-use-this": [0],
         "no-underscore-dangle": "off",
-        "no-console": 1,
+        "no-console": "off",
         "camelcase": "warn",
         "arrow-parens": [2, "always"],
         "quotes": [2, "single"],
         "implicit-arrow-linebreak": "off",
+        "function-paren-newline": "off",
         "consistent-return": "off",
         "no-unused-vars": [
         "error",
@@ -66,7 +67,7 @@
         ],
         "max-len": [
         "error",
-        100,
+        120,
         {
             "ignoreComments": true
         }

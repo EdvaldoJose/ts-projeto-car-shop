@@ -9,7 +9,7 @@ export default class MotorcycleController {
   public async createMotorCycle(
     req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<Response | undefined> {
     const moto: IMotorcycle = { ...req.body };
     try {
@@ -23,7 +23,7 @@ export default class MotorcycleController {
   public async findAllMotoCycles(
     _req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<Response | undefined> {
     try {
       const motoCreated = await this.motorcycleService.findAllMotors();
@@ -36,7 +36,7 @@ export default class MotorcycleController {
   public async findMotorById(
     req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<Response | undefined> {
     try {
       const motoCreated = await this.motorcycleService.findMotors(req.params.id);
@@ -49,7 +49,7 @@ export default class MotorcycleController {
   public async UpdateMotorcycle(
     req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<Response | undefined> {
     try {
       const resultUpdate = await this.motorcycleService.UpdateMoto(req.body, req.params.id);
@@ -62,7 +62,7 @@ export default class MotorcycleController {
   public async DeleteVehicle(
     req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<Response | undefined> {
     try {
       await this.motorcycleService.DeleteCar(req.params.id);
