@@ -3,6 +3,6 @@ coverage
 .nyc_output
 .env
 .prettierrc
-.eslintrc.json.zip
-.package.json.zip
-.copia_zip
+# .eslintrc.json.zip
+# .package.json.zip
+# .copia_zip

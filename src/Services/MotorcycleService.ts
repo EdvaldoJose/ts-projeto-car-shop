@@ -1,5 +1,5 @@
 import { isValidObjectId } from 'mongoose';
-import Motorcycle from '../Domains/Motorcycles';
+import Motorcycle from '../Domains/Motorcycle';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcycleODM from '../Models/MotorcycleODM';
 import TypeError from '../utils/Errors';
